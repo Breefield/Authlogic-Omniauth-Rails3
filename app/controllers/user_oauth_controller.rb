@@ -3,7 +3,7 @@ class UserOauthController < ApplicationController
     @current_user = User.find_or_create_from_oauth(auth_hash)
     if current_user
       UserSession.create(current_user, true)
-      redirect_to root_url, :notice => "Logged in"
+      redirect_to accounts_url, :notice => "Logged in"
     else
       redirect_to root_url, :flash => {:error => "Not authorized"}
     end

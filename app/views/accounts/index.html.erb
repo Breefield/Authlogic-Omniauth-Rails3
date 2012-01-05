@@ -1,3 +1,12 @@
 <h1>Welcome, <%= current_user.email %></h1>
 
 <p>This is your private account page</p>
+
+
+<ul>
+	<% unless current_user.image.blank? %>
+		<li>Avatar: <%= image_tag current_user.image %></li>
+	<% end %>
+	
+	<li>Name: <%= current_user.name %></li>
+</ul>
