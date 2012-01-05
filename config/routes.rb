@@ -1,10 +1,15 @@
 AuthlogicOmniauth::Application.routes.draw do
 
-  resource  :user_sessions
-  resources :users
+  root :to => 'home#index'
 
-  match 'login'     => 'user_sessions#new', :as => :login
-  match 'register'  => 'users#new',          :as => :register
+  resource  :home
+  resources :users
+  resources :accounts
+  resources  :user_sessions
+
+  match 'login'     => 'user_sessions#new',     :as => :login
+  match 'logout'    => 'user_sessions#destroy', :as => :logout
+  match 'register'  => 'users#new',             :as => :register
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
