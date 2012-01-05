@@ -1,4 +1,11 @@
 AuthlogicOmniauth::Application.routes.draw do
+
+  resource  :user_sessions
+  resources :users
+
+  match 'login'     => 'user_sessions#new', :as => :login
+  match 'register'  => 'users#new',          :as => :register
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
