@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   end
   
   validates :password, :presence => { :if => :password_required? }, :confirmation => true
-  validates :email, :presence => { :if => :email_available?}, :confirmation => true
+  validates :email, :presence => { :if => :email_available?}, :uniqueness => true, :confirmation => true
+  
   
   def self.find_or_create_from_oauth(auth_hash)
     provider = auth_hash["provider"]
