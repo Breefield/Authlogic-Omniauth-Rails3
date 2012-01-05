@@ -1,4 +1,6 @@
-<%= form_for @user do |f| %>
+<%= labeled_form_for @user do |f| %>
+
+	<%= f.error_messages %>
 
 	<%= f.label :email %><br/>
 	<%= f.text_field :email %><br/>

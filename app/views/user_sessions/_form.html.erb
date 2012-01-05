@@ -1,4 +1,7 @@
-<%= form_for @user_session do |f| %>
+<%= labeled_form_for @user_session do |f| %>
+
+	<%= f.error_messages %>
+
 	<%= f.label :email %></br/>
 	<%= f.text_field :email %><br/>
 	<br/>

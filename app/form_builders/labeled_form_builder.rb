@@ -5,7 +5,6 @@ class LabeledFormBuilder < ActionView::Helpers::FormBuilder
   def error_messages
     if object.errors.full_messages.any?
       content_tag(:div, :class => "error_messages alert-message error") do
-        content_tag(:a, "x", :class => 'close') +
         content_tag(:h3, "Invalid Fields") +
         content_tag(:ul, :class => "unstyled") do
           object.errors.full_messages.map do |msg|
